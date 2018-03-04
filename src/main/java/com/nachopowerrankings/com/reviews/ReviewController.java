@@ -14,7 +14,7 @@ public class ReviewController {
 	@Resource
 	private ReviewRepository reviewRepo;
 
-	@RequestMapping("/course")
+	@RequestMapping("/category")
 	public String showCategory(@RequestParam("id") Long categoryId, Model model) {
 		Category selected = categoryRepo.findOne(categoryId);
 		model.addAttribute("selectedCategory", selected);

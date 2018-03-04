@@ -23,7 +23,10 @@
 			<div class="categories-list" th:each="category: ${categories}">
 				<section class="category">
 					<h3 class="category-title">
-					<a th:href="@{/category(id=${category.id})}" th:text="${category.title}"></a>
+						<a th:href="@{/category(id=${category.id})}" th:text="${category.name}"></a>
+					</h3>
+				</section>
+			</div>
 		</article>
 		<footer class="footer-box">
 			<section class="footer-message">

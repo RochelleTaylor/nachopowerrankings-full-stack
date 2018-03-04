@@ -18,12 +18,11 @@
 				</ul>
 			</nav>
 		</header>
-		<article class="main-content">
+		<article>
 			<h2 class="categories-title">Nacho Review Categories</h2>
-			<div class="categories-list" th:each="category: ${categories}">
+			<div class="categories-list">
 				<section class="category">
-					<h3 class="category-title">
-					<a th:href="@{/category(id=${category.id})}" th:text="${category.title}"></a>
+					
 		</article>
 		<footer class="footer-box">
 			<section class="footer-message">

@@ -19,11 +19,14 @@
 			</nav>
 		</header>
 		<article class="main-content">
-			<h2 class="categories-title">Nacho Review Categories</h2>
-			<div class="categories-list" th:each="category: ${categories}">
-				<section class="category">
-					<h3 class="category-title">
-					<a th:href="@{/category(id=${category.id})}" th:text="${category.title}"></a>
+			<h2 class="category-title">Nacho Review Category</h2>
+			<div class="reviews-list" th:each="review: ${selectedCategory.reviews}">
+				<section class="reviews">
+					<h3 class="reviews-list">
+						<a th:href="@{/review(id=${review.id})}" th:text="${review.title}"></a>
+					</h3>
+				</section>
+			</div>
 		</article>
 		<footer class="footer-box">
 			<section class="footer-message">
