@@ -24,7 +24,7 @@ public class MappingTest {
 	@Resource
 	private CategoryRepository categoryRepo;
 	@Resource
-	private ReviewRepo reviewRepo;
+	private ReviewRepository reviewRepo;
 
 	@Test
 	public void shouldSaveAndLoadCategory() {
