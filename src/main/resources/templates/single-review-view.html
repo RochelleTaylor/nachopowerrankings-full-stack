@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:each="review: ${selectedReview}">
+<title th:title="@{review.title}"></title>
+<link href="/styles/style.css" rel="stylesheet"></link>
+</head>
+
+<body>
+
+	<header>
+		<h1> A Modern Nacho Critque </h1>
+	</header>
+	
+
+	<article th:each="review: ${selectedReview}">
+		<img th:src="${review.imageUrl}" alt="Picture of Nachos"/> 
+		<h3 th:text="${review.title}"></h3>
+		<p th:text="${review.content}"></p>
+		
+		<h3 th:text="${review.tldr}"></h3>
+		<a href="http://localhost:8080/reviews">Back to home</a>
+	</article>
+
+</body>
+</html>

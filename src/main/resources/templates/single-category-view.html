@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>NachoPowerRankings.com</title>
+	<link href="/styles/style.css" rel="stylesheet"></link>
+
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1 class="header-title">NACHOPOWERRANKINGS</h1>
+			<nav class="header-nav">
+				<ul class="nav-list">
+					<li class="nav-list-item"><a class="nav-link" href=""></a>HOME</li>
+					<li class="nav-list-item">RATING SCALE</li>
+					<li class="nav-list-item">CONTRIBUTORS</li>
+					<li class="nav-list-item">CONTACTS</li>
+				</ul>
+			</nav>
+		</header>
+		<article class="main-content">
+			<h2 class="category-title">Nacho Review Category</h2>
+			<div class="reviews-list" th:each="review: ${selectedCategory.reviews}">
+				<section class="reviews">
+					<h3 class="reviews-list">
+						<a th:href="@{/review(id=${review.id})}" th:text="${review.title}"></a>
+					</h3>
+				</section>
+			</div>
+		</article>
+		<footer class="footer-box">
+			<section class="footer-message">
+				<p>Thanks for stopping by NachoPowerRankings.com</p>
+			</section>
+			<section class="footer-copyright">
+				<p>©2018</p>
+			</section>
+		</footer>
+	</div>
+
+</body>
+</html>
