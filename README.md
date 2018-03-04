@@ -4,8 +4,8 @@ In the week 7 capstone project I get to return the topic of nacho reviews. This 
 
 ## Tasks
 -[ ] Add the following dependencies to build.gradle (or use Spring Initializr to create a new build.gradle)
-	-[ ] JPA (spring-boot-starter-data-jpa)
-	-[ ] H2
+	- [] JPA (spring-boot-starter-data-jpa)
+	- [ ] H2
 -[ ] Create a Category class that:
 	-[ ] is a JPA entity.
 	-[ ] contains an instance variable referencing the Reviews it contains.
