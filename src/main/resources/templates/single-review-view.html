@@ -20,7 +20,7 @@
 		<p th:text="${review.content}"></p>
 		
 		<h3 th:text="${review.tldr}"></h3>
-		<a href="http://localhost:8080/reviews">Back to home</a>
+		<a th:href="@{/category(id=${review.category.id})}" th:text="${review.category.name}"></a>
 	</article>
 
 </body>
