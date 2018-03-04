@@ -12,7 +12,7 @@ public class Category {
 
 	@Id
 	@GeneratedValue
-	private long id;
+	private Long id;
 
 	private String name;
 	private String summary;
@@ -20,7 +20,7 @@ public class Category {
 	@OneToMany(mappedBy = "category")
 	private Collection<Review> reviews;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 

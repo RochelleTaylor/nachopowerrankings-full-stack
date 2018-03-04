@@ -13,7 +13,6 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.ui.Model;
 
 //@RunWith(SpringJUnit4ClassRunner.class)
@@ -22,7 +21,7 @@ public class ReviewControllerTest {
 	@InjectMocks
 	private ReviewController underTest;
 	// @Resource
-	private TestEntityManager entityManager;
+	// private TestEntityManager entityManager;
 	@Mock
 	// @Resource
 	private CategoryRepository categoryRepo;
@@ -33,8 +32,8 @@ public class ReviewControllerTest {
 	// private static final String IMAGE_URL = "picture";
 	// private static final String CONTENT = "Foo Bar Etc";
 	// private static final String TITLE = "TestReview";
-	private static final String SUMMARY = "A new way to test";
-	private static final String NAME = "Testing";
+	// private static final String SUMMARY = "A new way to test";
+	// private static final String NAME = "Testing";
 	@Mock
 	private Category category1; // = new Category(NAME, SUMMARY);
 	@Mock

@@ -25,6 +25,8 @@ public class MappingTest {
 	private CategoryRepository categoryRepo;
 	@Resource
 	private ReviewRepository reviewRepo;
+	@Resource
+	private ContentTagRepository contentTagRepo;
 
 	@Test
 	public void shouldSaveAndLoadCategory() {
@@ -125,4 +127,19 @@ public class MappingTest {
 		assertThat(reviewsFromCategory1, not(hasItem(review3)));
 	}
 
+	@Test
+	public void shouldSaveAndLoadContentTag() {
+		Category category = new Category("Testing", "A new way to test");
+		category = categoryRepo.save(category);
+		Review review1 = new Review("Test Review", "Stuff About Nachos", category, "image", "TLDR");
+		review1 = reviewRepo.save(review1);
+		ContentTag tag1 = new ContentTag("Test Tag", review1);
+		Long tag1Id = tag1.getId();
+		tag1 = contentTagRepo.save(tag1);
+
+		entityManager.flush();
+		entityManager.clear();
+		tag1 = contentTagRepo.findOne(tag1Id);
+		assertThat(tag1.getTitle(), is("Test Tag"));
+	}
 }
