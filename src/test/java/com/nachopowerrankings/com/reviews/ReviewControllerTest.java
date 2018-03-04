@@ -79,10 +79,23 @@ public class ReviewControllerTest {
 	}
 
 	@Test
+	public void shouldReturnAllCategoriesView() {
+		String templateName = underTest.showAllCategories(model);
+		assertThat(templateName, is("all-categories-view"));
+	}
+
+	@Test
 	public void shouldAddASingleReviewToModel() {
 		Long arbritaryReviewId = 42L;
 		when(reviewRepo.findOne(arbritaryReviewId)).thenReturn(review1);
 		underTest.showReview(arbritaryReviewId, model);
 		verify(model).addAttribute("selectedReview", review1);
+	}
+
+	@Test
+	public void shouldReturnSingleReviewView() {
+		String templateName = underTest.showReview(42L, model);
+		assertThat(templateName, is("single-review-view"));
+
 	}
 }

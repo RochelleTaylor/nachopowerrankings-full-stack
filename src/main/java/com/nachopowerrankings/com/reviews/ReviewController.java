@@ -30,9 +30,10 @@ public class ReviewController {
 	}
 
 	@RequestMapping("/review")
-	public void showReview(Long reviewId, Model model) {
+	public String showReview(@RequestParam("id") Long reviewId, Model model) {
 		Review selected = reviewRepo.findOne(reviewId);
 		model.addAttribute("selectedReview", selected);
+		return "single-review-view";
 	}
 
 }
