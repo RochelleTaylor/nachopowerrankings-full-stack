@@ -3,8 +3,8 @@
 In the week 7 capstone project I get to return the topic of nacho reviews. This time we are wiring up a full stack web app to serve the reviews.  The reviews are going to be stored in a H2 database.
 
 ## Tasks
--[ ] Add the following dependencies to build.gradle (or use Spring Initializr to create a new build.gradle)
-	- [] JPA (spring-boot-starter-data-jpa)
+- [ ] Add the following dependencies to build.gradle (or use Spring Initializr to create a new build.gradle)
+	- [ ] JPA (spring-boot-starter-data-jpa)
 	- [ ] H2
 -[ ] Create a Category class that:
 	-[ ] is a JPA entity.
