@@ -14,7 +14,7 @@ In the week 7 capstone project I get to return the topic of nacho reviews. This 
 	- [x] it is a JPA entity.
 	- [x] configures a JPA relationship to its associated category.
 	- [x] allows for a description/content/body longer than 255 characters.
--[x] Update your view (templates/html/css) such that:
-	-[x] there is a page that lists review categories, each of which links to the (details) page for a specific category.
-	-[x] there is a page that lists the reviews for a chosen category, each of which links to the (details) page for a specific review.
-	-[x] each review detail page has a link to the page for its category.
+- [x] Update your view (templates/html/css) such that:
+	- [x] there is a page that lists review categories, each of which links to the (details) page for a specific category.
+	- [x] there is a page that lists the reviews for a chosen category, each of which links to the (details) page for a specific review.
+	- [x] each review detail page has a link to the page for its category.
