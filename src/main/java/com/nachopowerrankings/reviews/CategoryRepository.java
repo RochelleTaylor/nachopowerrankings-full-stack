@@ -1,4 +1,4 @@
-package com.nachopowerrankings.com.reviews;
+package com.nachopowerrankings.reviews;
 
 import org.springframework.data.repository.CrudRepository;
 

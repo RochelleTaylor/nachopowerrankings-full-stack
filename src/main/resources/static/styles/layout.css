@@ -44,6 +44,7 @@ article{
 	align-content: flex-start;
 }
 
+}
 h3{
 	margin-left: 30px;
 }
@@ -60,7 +61,7 @@ article p {
 	margin-top: 30px;
 }
 img{
-	float: left;
+	
 	max-width:340px;
 	margin: 10px 30px;
 }

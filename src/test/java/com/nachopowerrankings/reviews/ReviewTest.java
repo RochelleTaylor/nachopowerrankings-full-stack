@@ -1,9 +1,12 @@
-package com.nachopowerrankings.com.reviews;
+package com.nachopowerrankings.reviews;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
+
+import com.nachopowerrankings.reviews.Category;
+import com.nachopowerrankings.reviews.Review;
 
 public class ReviewTest {
 	private static final String TLDR = "T";

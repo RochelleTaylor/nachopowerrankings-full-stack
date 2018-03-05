@@ -1,4 +1,4 @@
-package com.nachopowerrankings.com.reviews;
+package com.nachopowerrankings.reviews;
 
 import javax.annotation.Resource;
 
