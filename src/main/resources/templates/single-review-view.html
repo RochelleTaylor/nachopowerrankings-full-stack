@@ -3,25 +3,42 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head th:each="review: ${selectedReview}">
-<title th:title="@{review.title}"></title>
-<link href="/styles/style.css" rel="stylesheet"></link>
+	<title th:title="@{review.title}"></title>
+	<link href="/styles/style.css" rel="stylesheet"/>
+	<link href="/styles/layout.css" rel="stylesheet"/>
+	<link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Raleway" rel="stylesheet"/>
 </head>
 
 <body>
-
-	<header>
-		<h1> A Modern Nacho Critque </h1>
-	</header>
-	
-
-	<article th:each="review: ${selectedReview}">
-		<img th:src="${review.imageUrl}" alt="Picture of Nachos"/> 
-		<h3 th:text="${review.title}"></h3>
-		<p th:text="${review.content}"></p>
-		
-		<h3 th:text="${review.tldr}"></h3>
-		<a th:href="@{/category(id=${review.category.id})}" th:text="${review.category.name}"></a>
-	</article>
-
+	<div class="container">
+		<header>
+			<div class="header-title-container">
+				<h1 class="header-title">NachoPowerRankings</h1>
+			</div>
+			<nav class="header-nav">
+				<ul class="nav-list">
+					<li class="nav-list-item"><a class="nav-link" href="/categories">HOME</a></li>
+					<li class="nav-list-item">RATING SCALE</li>
+					<li class="nav-list-item">CONTRIBUTORS</li>
+					<li class="nav-list-item">CONTACTS</li>
+				</ul>
+			</nav>
+		</header>
+		<article class="review-body" th:each="review: ${selectedReview}">
+			<h3 class="review-title" th:text="${review.title}"></h3>
+			<img th:src="${review.imageUrl}" alt="Picture of Nachos"/>
+			<p th:text="${review.content}"></p>
+			<h3 class="review-tldr" th:text="${review.tldr}"></h3>
+			<a class="category-link" th:href="@{/category(id=${review.category.id})}" th:text="'Return to '+ ${review.category.name}"></a>
+		</article>
+		<footer class="footer-box">
+			<section class="footer-message">
+				<p>Thanks for stopping by NachoPowerRankings.com</p>
+			</section>
+			<section class="footer-copyright">
+				<p>©2018</p>
+			</section>
+		</footer>
+	</div>
 </body>
 </html>
