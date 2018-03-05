@@ -1,0 +1,31 @@
+@font-face {
+	font-family: 'Bowlby One SC', cursive;
+	font-family: 'Raleway', sans-serif;
+}
+
+a:link {
+	color: black;
+	text-decoration: none;
+}
+a:visited {
+    color: black;
+}
+a:hover {
+	color:#098207;
+	text-decoration: underline;
+}
+body {
+    background-image: url("/images/background.png");
+    background-size: cover;
+    }
+.container{
+    background-color: rgba(229, 216, 139, 0.8);
+    font-family: 'Raleway', sans-serif;
+}
+.header-title {
+    font-family: "Bowlby One SC", "Times New Roman", Times, serif;
+    font-size: 40px;
+}
+ul.nav-list{
+	list-style-type: none;
+}

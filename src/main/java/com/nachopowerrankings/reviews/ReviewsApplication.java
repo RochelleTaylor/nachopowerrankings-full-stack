@@ -1,4 +1,4 @@
-package com.nachopowerrankings.com.reviews;
+package com.nachopowerrankings.reviews;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

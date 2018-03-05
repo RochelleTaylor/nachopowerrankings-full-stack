@@ -3,15 +3,18 @@
 <head>
 	<title>NachoPowerRankings.com</title>
 	<link href="/styles/style.css" rel="stylesheet"></link>
-
+	<link href="/styles/layout.css" rel="stylesheet"/>
+	<link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Raleway" rel="stylesheet"/>
 </head>
 <body>
 	<div class="container">
 		<header>
-			<h1 class="header-title">NACHOPOWERRANKINGS</h1>
+			<div class="header-title-container">
+				<h1 class="header-title">NachoPowerRankings.com</h1>
+			</div>
 			<nav class="header-nav">
 				<ul class="nav-list">
-					<li class="nav-list-item"><a class="nav-link" href=""></a>HOME</li>
+					<li class="nav-list-item"><a class="nav-link" href="/categories">HOME</a></li>
 					<li class="nav-list-item">RATING SCALE</li>
 					<li class="nav-list-item">CONTRIBUTORS</li>
 					<li class="nav-list-item">CONTACTS</li>
@@ -20,6 +23,7 @@
 		</header>
 		<article class="main-content">
 			<h2 class="categories-title">Nacho Review Categories</h2>
+			<p class="categories-description">Here at NachoPowerRankings.com, we have drilled down nachos to these basic categories. Most nachos can fall into one of these categories and it helps us keep nachos of similar pedigrees competing in their respective weight classes.</p>
 			<div class="categories-list" th:each="category: ${categories}">
 				<section class="category">
 					<h3 class="category-title">

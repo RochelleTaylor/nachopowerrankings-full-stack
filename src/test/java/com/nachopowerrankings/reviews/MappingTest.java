@@ -1,4 +1,4 @@
-package com.nachopowerrankings.com.reviews;
+package com.nachopowerrankings.reviews;
 
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.hasItem;
@@ -13,6 +13,11 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.nachopowerrankings.reviews.Category;
+import com.nachopowerrankings.reviews.CategoryRepository;
+import com.nachopowerrankings.reviews.Review;
+import com.nachopowerrankings.reviews.ReviewRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @DataJpaTest
