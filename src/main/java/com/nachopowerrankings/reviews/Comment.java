@@ -10,13 +10,17 @@ public class Comment {
 	@Id
 	@GeneratedValue
 	private long id;
-	private String title;
+	private String author;
 	@ManyToOne
 	private Review review;
+	private String content;
+	private long time;
 
-	public Comment(String title, Review review) {
-		this.title = title;
+	public Comment(String author, Review review, long time, String content) {
+		this.author = author;
 		this.review = review;
+		this.time = time;
+		this.content = content;
 
 	}
 
@@ -29,8 +33,8 @@ public class Comment {
 		return id;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getAuthor() {
+		return author;
 	}
 
 	@Override
@@ -52,7 +56,17 @@ public class Comment {
 	}
 
 	public Review getReview() {
-		// TODO Auto-generated method stub
+
 		return review;
+	}
+
+	public Object getContent() {
+
+		return content;
+	}
+
+	public Object getTime() {
+
+		return time;
 	}
 }

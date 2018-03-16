@@ -185,13 +185,13 @@ public class MappingTest {
 		category = categoryRepo.save(category);
 		Review review = new Review("Test Review", "Stuff About Nachos", category, "image", "TLDR");
 		review = reviewRepo.save(review);
-		Comment testComment = new Comment("TestName", review);
+		Comment testComment = new Comment("TestName", review, 0, "");
 		testComment = commentRepo.save(testComment);
 		long testCommentId = testComment.getId();
 		entityManager.flush();
 		entityManager.clear();
 		testComment = commentRepo.findOne(testCommentId);
-		assertThat(testComment.getTitle(), is("TestName"));
+		assertThat(testComment.getAuthor(), is("TestName"));
 	}
 
 	@Test
@@ -200,10 +200,11 @@ public class MappingTest {
 		category = categoryRepo.save(category);
 		Review review1 = new Review("Test Review", "Stuff About Nachos", category, "image", "TLDR");
 		review1 = reviewRepo.save(review1);
-		Comment testComment1 = new Comment("TestName1", review1);
+		long review1Id = review1.getId();
+		Comment testComment1 = new Comment("TestName1", review1, 0, "");
 		testComment1 = commentRepo.save(testComment1);
 		long testComment1Id = testComment1.getId();
-		Comment testComment2 = new Comment("TestName2", review1);
+		Comment testComment2 = new Comment("TestName2", review1, 0, "");
 		testComment2 = commentRepo.save(testComment2);
 		long testComment2Id = testComment2.getId();
 		entityManager.flush();
@@ -214,10 +215,12 @@ public class MappingTest {
 
 		testComment1 = commentRepo.findOne(testComment1Id);
 		testComment2 = commentRepo.findOne(testComment2Id);
-		assertThat(testComment1.getTitle(), is("TestName1"));
-		assertThat(testComment2.getTitle(), is("TestName2"));
+		review1 = reviewRepo.findOne(review1Id);
+		assertThat(testComment1.getAuthor(), is("TestName1"));
+		assertThat(testComment2.getAuthor(), is("TestName2"));
 		assertThat(testComment1.getReview(), is(review1));
 		assertThat(testComment2.getReview(), is(review1));
+		assertThat(review1.getComments(), containsInAnyOrder(testComment1, testComment2));
 
 	}
 
