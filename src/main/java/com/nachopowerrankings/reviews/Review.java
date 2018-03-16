@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -21,8 +22,10 @@ public class Review {
 	private String imageUrl;
 	@ManyToOne
 	private Category category;
-	@OneToMany(mappedBy = "review")
+	@ManyToMany(mappedBy = "reviews")
 	private Collection<ContentTag> contentTags;
+	@OneToMany(mappedBy = "review")
+	private Collection<Comment> comments;
 
 	public Collection<ContentTag> getContentTags() {
 		return contentTags;
@@ -81,6 +84,10 @@ public class Review {
 		}
 
 		return id == ((Review) obj).id;
+	}
+
+	public Collection<Comment> getComments() {
+		return comments;
 	}
 
 }
