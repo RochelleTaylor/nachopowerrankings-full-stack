@@ -27,6 +27,8 @@ public class MappingTest {
 	private ReviewRepository reviewRepo;
 	@Resource
 	private ContentTagRepository contentTagRepo;
+	@Resource
+	private CommentRepository commentRepo;
 
 	@Test
 	public void shouldSaveAndLoadCategory() {
@@ -175,6 +177,21 @@ public class MappingTest {
 		Iterable<Review> reviewsFromCategory1 = categoryRepo.findOne(category1Id).getReviews();
 		assertThat(reviewsFromCategory1, containsInAnyOrder(review1, review2));
 		assertThat(reviewsFromCategory1, not(hasItem(review3)));
+	}
+
+	@Test
+	public void shouldSaveAndLoadAComment() {
+		Category category = new Category("Testing", "A new way to test");
+		category = categoryRepo.save(category);
+		Review review = new Review("Test Review", "Stuff About Nachos", category, "image", "TLDR");
+		review = reviewRepo.save(review);
+		Comment testComment = new Comment("TestName", review);
+		testComment = commentRepo.save(testComment);
+		long testCommentId = testComment.getId();
+		entityManager.flush();
+		entityManager.clear();
+		testComment = commentRepo.findOne(testCommentId);
+		assertThat(testComment.getTitle(), is("TestName"));
 	}
 
 }
