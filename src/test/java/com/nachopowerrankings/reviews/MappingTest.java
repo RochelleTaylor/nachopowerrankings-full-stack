@@ -194,4 +194,31 @@ public class MappingTest {
 		assertThat(testComment.getTitle(), is("TestName"));
 	}
 
+	@Test
+	public void shouldHaveTwoCommentsAndOneReview() {
+		Category category = new Category("Testing", "A new way to test");
+		category = categoryRepo.save(category);
+		Review review1 = new Review("Test Review", "Stuff About Nachos", category, "image", "TLDR");
+		review1 = reviewRepo.save(review1);
+		Comment testComment1 = new Comment("TestName1", review1);
+		testComment1 = commentRepo.save(testComment1);
+		long testComment1Id = testComment1.getId();
+		Comment testComment2 = new Comment("TestName2", review1);
+		testComment2 = commentRepo.save(testComment2);
+		long testComment2Id = testComment2.getId();
+		entityManager.flush();
+		entityManager.clear();
+
+		Iterable<Comment> comments = commentRepo.findAll();
+		assertThat(comments, containsInAnyOrder(testComment1, testComment2));
+
+		testComment1 = commentRepo.findOne(testComment1Id);
+		testComment2 = commentRepo.findOne(testComment2Id);
+		assertThat(testComment1.getTitle(), is("TestName1"));
+		assertThat(testComment2.getTitle(), is("TestName2"));
+		assertThat(testComment1.getReview(), is(review1));
+		assertThat(testComment2.getReview(), is(review1));
+
+	}
+
 }
