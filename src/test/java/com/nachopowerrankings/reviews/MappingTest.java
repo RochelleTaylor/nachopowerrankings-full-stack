@@ -72,7 +72,7 @@ public class MappingTest {
 		entityManager.clear();
 		underTest = contentTagRepo.findOne(underTestId);
 		// Assert
-		assertThat(underTest.getReview(), is(review));
+		assertThat(underTest.getName(), is("TestName"));
 	}
 
 	@Test

@@ -1,9 +1,13 @@
 package com.nachopowerrankings.reviews;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class ContentTag {
@@ -11,20 +15,24 @@ public class ContentTag {
 	@GeneratedValue
 	private long id;
 	private String name;
-	@ManyToOne
-	private Review review;
+	@ManyToMany
+	private Collection<Review> reviews; // = new HashSet<>();
 
-	public ContentTag(String name, Review... review) {
+	public ContentTag(String name, Review... passedReviews) {
 		this.name = name;
-		// this.review = review;
+		reviews = new ArrayList<>(Arrays.asList(passedReviews));
+		// for (Review review : passedReviews) {
+		// reviews.add(review);
+		// }
 
 	}
 
+	@SuppressWarnings("unused")
 	private ContentTag() {
 	};
 
-	public Review getReview() {
-		return review;
+	public Collection<Review> getReviews() {
+		return reviews;
 	}
 
 	public long getId() {
@@ -35,6 +43,24 @@ public class ContentTag {
 	public String getName() {
 
 		return name;
+	}
+
+	@Override
+	public int hashCode() {
+		return ((Long) id).hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+
+		if (obj == null || getClass() != obj.getClass()) {
+			return false;
+		}
+
+		return id == ((ContentTag) obj).id;
 	}
 
 }
