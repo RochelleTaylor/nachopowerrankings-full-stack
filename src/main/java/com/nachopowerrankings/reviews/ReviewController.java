@@ -38,11 +38,13 @@ public class ReviewController {
 		return "single-review-view";
 	}
 
-	public String addComment(String author, Long reviewId, Long time, String content) {
-		Review appendedReview = reviewRepo.findOne(reviewId);
-		Comment newComment = new Comment(author, appendedReview, time, content);
+	@RequestMapping("/add-comment")
+	public String addComment(String author, String reviewId, String content) {
+		Long longReviewId = Long.parseLong(reviewId);
+		Review appendedReview = reviewRepo.findOne(longReviewId);
+		Comment newComment = new Comment(author, appendedReview, content);
 		commentRepo.save(newComment);
-		// TODO Auto-generated method stub
+
 		return "redirect:/review?id=" + reviewId;
 	}
 

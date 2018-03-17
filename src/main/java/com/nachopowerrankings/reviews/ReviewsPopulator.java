@@ -42,7 +42,7 @@ public class ReviewsPopulator implements CommandLineRunner {
 		reviewRepo.save(new Review("Smokey Bones \'The Manchego\'",
 				"Smokey Bones reaches for the brass ring with \'The Manchego\' and almost gets there. The chips are sometimes a little sketchy, with previous visits yielding chips that were stale.  However, most of the times I've had this dish they have been excellent. The combination of cheese sauce and shredded cheese to the dish provides a depth of flavor in the cheese category. Pulled pork and shredded chicken are both excellent and combine with the other fresh toppings to provide the quintessintial American nacho experience.",
 				restaurant, "/images/smokeyBonesNachos.jpg", "Classic American offering, B+."));
-		Comment comment1 = new Comment("Ben", reviewRepo.findOne(review1Id), 1111011L, "Taco Bell makes me smell.");
+		Comment comment1 = new Comment("Ben", reviewRepo.findOne(review1Id), "Taco Bell makes me smell.");
 		commentRepo.save(comment1);
 	}
 

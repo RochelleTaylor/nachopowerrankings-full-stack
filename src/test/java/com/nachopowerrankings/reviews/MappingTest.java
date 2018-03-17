@@ -185,7 +185,7 @@ public class MappingTest {
 		category = categoryRepo.save(category);
 		Review review = new Review("Test Review", "Stuff About Nachos", category, "image", "TLDR");
 		review = reviewRepo.save(review);
-		Comment testComment = new Comment("TestName", review, 0, "");
+		Comment testComment = new Comment("TestName", review, "");
 		testComment = commentRepo.save(testComment);
 		long testCommentId = testComment.getId();
 		entityManager.flush();
@@ -201,10 +201,10 @@ public class MappingTest {
 		Review review1 = new Review("Test Review", "Stuff About Nachos", category, "image", "TLDR");
 		review1 = reviewRepo.save(review1);
 		long review1Id = review1.getId();
-		Comment testComment1 = new Comment("TestName1", review1, 0, "");
+		Comment testComment1 = new Comment("TestName1", review1, "");
 		testComment1 = commentRepo.save(testComment1);
 		long testComment1Id = testComment1.getId();
-		Comment testComment2 = new Comment("TestName2", review1, 0, "");
+		Comment testComment2 = new Comment("TestName2", review1, "");
 		testComment2 = commentRepo.save(testComment2);
 		long testComment2Id = testComment2.getId();
 		entityManager.flush();

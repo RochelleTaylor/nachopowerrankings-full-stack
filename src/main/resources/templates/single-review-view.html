@@ -34,7 +34,6 @@
 		<div class="comments-body">
 			<article class="comment-body" th:each="comment: ${selectedReview.comments}">
 				<h5 class="author-byline"><span class="comment-author" th:text="${comment.author}">Commenter</span> thinks this about the review:</h5>
-				<p class="comment-timestamp" th:text="${comment.time}"></p>
 				<p class="comment-content" th:text="${comment.content}"></p>
 			</article>
 		</div>
@@ -48,12 +47,9 @@
 					<label class="add-comment-content-label">What do you think about this review?</label>
 					<input class="add-comment-content-input" type="text" name="content"/>
 				</div>
-				<div class= "add-comment-time">
-					<input class="add-comment-time-input" type="hidden" name="time"/>
-				</div>
 				<div class="add-comment-reviewId">
 				<p th:text="${selectedReview.id}"></p>
-					<input type="text" th:text="${selectedReview.id}"/>
+					<input type="text" th:value="${selectedReview.id}" name="reviewId"/>
 				<!--  	<input class="add-comment-reviewId" type="text" th:field="*{selectedReview.id}" name="inputId"> 
 			 -->	
 			 	</div>

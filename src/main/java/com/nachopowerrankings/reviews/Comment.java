@@ -16,12 +16,10 @@ public class Comment {
 	private Review review;
 	@Lob
 	private String content;
-	private long time;
 
-	public Comment(String author, Review review, long time, String content) {
+	public Comment(String author, Review review, String content) {
 		this.author = author;
 		this.review = review;
-		this.time = time;
 		this.content = content;
 
 	}
@@ -67,8 +65,4 @@ public class Comment {
 		return content;
 	}
 
-	public Object getTime() {
-
-		return time;
-	}
 }

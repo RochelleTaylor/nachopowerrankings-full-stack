@@ -7,12 +7,12 @@ import org.junit.Test;
 
 public class CommentTest {
 	@Test
-	public void shouldHaveAuthorReviewTimeAndContent() {
+	public void shouldHaveAuthorReviewAndContent() {
 		Review review = new Review(null, null, null, null, null);
-		Comment underTest = new Comment("Ben", review, 101L, "This is a test comment.");
+		Comment underTest = new Comment("Ben", review, "This is a test comment.");
 		assertThat(underTest.getAuthor(), is("Ben"));
 		assertThat(underTest.getReview(), is(review));
-		assertThat(underTest.getTime(), is(101L));
+
 		assertThat(underTest.getContent(), is("This is a test comment."));
 	}
 

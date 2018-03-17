@@ -83,15 +83,15 @@ public class ReviewControllerTest {
 
 	}
 
-	@Test
-	public void shouldAddCommentToRepo() {
-		String testAuthor = "Raphael";
-		Long testDate = 101L;
-		String testContent = "Test";
-		when(commentRepo.save(comment1)).thenReturn(comment1);
-		// String result = underTest.addComment(testAuthor, review1, testDate,
-		// testContent, model);
-		// assertThat(result, is("redirect:single-review-view"));
-		// verify(model)result.
-	}
+	// @Test
+	// public void shouldAddCommentToRepo() {
+	// String testAuthor = "Raphael";
+	// Long testDate = 101L;
+	// String testContent = "Test";
+	// when(commentRepo.save(comment1)).thenReturn(comment1);
+	// String result = underTest.addComment(testAuthor, review1, testDate,
+	// testContent, model);
+	// assertThat(result, is("redirect:single-review-view"));
+	// verify(model)result.
+	// }
 }
