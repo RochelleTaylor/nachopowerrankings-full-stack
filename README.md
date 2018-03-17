@@ -5,7 +5,7 @@ In the week 9 capstone project we return to our full stack nachos review site.  
 ! [Screenshot of a review view](screenshotver2.png)
 ## Tasks
 - [ ] Add tags to the reviews
-	- [x] Create a ContentTag class.
+	- [x] Create a Tag class.
 		- [x] Create a Many to Many relationship with the Review class.
 		- [x] Name element.
 	- [ ] Clicking on a tag will display reviews assoicated with the tag.
@@ -15,7 +15,7 @@ In the week 9 capstone project we return to our full stack nachos review site.  
 	- [x] Create a Comment class.
 		- [x] Create a Many to One relationship with the Review class.
 		- [x] Commenter name, time and date, and content elements.   
-	- [ ] Should be listed on the review page after review content.
+	- [x] Should be listed on the review page after review content.
 	- [ ] Create a form on the review page that adds a comment to a review.
 	- [ ] Use a HTML form submission.
 	- [ ] After submitting comment refresh review page with user comment added.
@@ -24,7 +24,8 @@ In the week 9 capstone project we return to our full stack nachos review site.  
 Contributers:
 	Rochelle Taylor
 	Ben Williams
-	
+
+
 # Reviews Site, Full Stack
 ## Overview
 In the week 7 capstone project I get to return the topic of nacho reviews. This time we are wiring up a full stack web app to serve the reviews.  The reviews are going to be stored in a H2 database.
