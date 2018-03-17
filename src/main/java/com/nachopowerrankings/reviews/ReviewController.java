@@ -13,6 +13,8 @@ public class ReviewController {
 	private CategoryRepository categoryRepo;
 	@Resource
 	private ReviewRepository reviewRepo;
+	@Resource
+	private CommentRepository commentRepo;
 
 	@RequestMapping("/category")
 	public String showCategory(@RequestParam("id") Long categoryId, Model model) {
@@ -36,9 +38,12 @@ public class ReviewController {
 		return "single-review-view";
 	}
 
-	public String addComment(String testAuthor, Review review1, Long testDate, String testContent, Model model) {
+	public String addComment(String author, Long reviewId, Long time, String content) {
+		Review appendedReview = reviewRepo.findOne(reviewId);
+		Comment newComment = new Comment(author, appendedReview, time, content);
+		commentRepo.save(newComment);
 		// TODO Auto-generated method stub
-		return null;
+		return "redirect:/review?id=" + reviewId;
 	}
 
 }
