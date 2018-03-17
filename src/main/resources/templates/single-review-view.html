@@ -31,6 +31,14 @@
 			<h3 class="review-tldr" th:text="${review.tldr}"></h3>
 			<a class="category-link" th:href="@{/category(id=${review.category.id})}" th:text="'Return to '+ ${review.category.name}"></a>
 		</article>
+		<div class = "comments-body">
+			<article class="comment-body" th:each="comment: ${selectedReview.comments}">
+				<h5 class="author-byline"><span class="comment-author" th:text="${comment.author}"></span> thinks this about the review:</h5>
+				<p class="comment-timestamp" th:text="${comment.time}"></p>
+				<p class="comment-content" th:text="${comment.content}"></p>
+			</article>
+		</div>
+		
 		<footer class="footer-box">
 			<section class="footer-message">
 				<p>Thanks for stopping by NachoPowerRankings.com</p>

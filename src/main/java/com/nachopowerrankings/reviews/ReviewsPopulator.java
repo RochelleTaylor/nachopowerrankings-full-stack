@@ -12,6 +12,8 @@ public class ReviewsPopulator implements CommandLineRunner {
 	private CategoryRepository categoryRepo;
 	@Resource
 	private ReviewRepository reviewRepo;
+	@Resource
+	private CommentRepository commentRepo;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -23,9 +25,10 @@ public class ReviewsPopulator implements CommandLineRunner {
 		Category restaurant = new Category("Restaurant Nachos",
 				"The big leagues of nachos, when creating nachos gets serious.");
 		restaurant = categoryRepo.save(restaurant);
-		reviewRepo.save(new Review("Taco Bell Nachos Supreme",
+		Review tacoBellNachosSupreme = new Review("Taco Bell Nachos Supreme",
 				"This is the nickel of the nacho world, ubiquitous, yet not really necessary. However, it does provide a stable baseline that other nachos have to acheive to be considered nachos. The chips are fresh with a crunch and adequete saltiness.  The nacho cheese is the goold standard for fast food cheese sauce, creamy, hot, and smooth in a way that only processed cheese can achieve.  Toppings are minimal, but they work to add value to the dish. The taco beef is classic, sour cream and tomatoes add a coolness that helps contrast the sharpness of the cheese sauce, but the refried beans often miss the mark being too clumpy most of the time.",
-				fastFood, "/images/NachosSupreme.jpg", "A baseline C, better than not having nachos."));
+				fastFood, "/images/NachosSupreme.jpg", "A baseline C, better than not having nachos.");
+		reviewRepo.save(tacoBellNachosSupreme);
 		reviewRepo.save(new Review("Taco Bell Nachos Bell Grande",
 				"Taco Bell's premium nachos offering is a larger version of their Nachos Supreme. There is nothing to seperate it from it's smaller brethern. This isn't a bad thing. As we described in our review of the Nachos Supreme, the ingredients used are adequete, but nothing makes the Nachos Bell Grande stand out from the rest.",
 				fastFood, "/images/NachosBellGrande.jpg", "A bigger version of the Nachos Supreme, C."));
@@ -38,7 +41,7 @@ public class ReviewsPopulator implements CommandLineRunner {
 		reviewRepo.save(new Review("Smokey Bones \'The Manchego\'",
 				"Smokey Bones reaches for the brass ring with \'The Manchego\' and almost gets there. The chips are sometimes a little sketchy, with previous visits yielding chips that were stale.  However, most of the times I've had this dish they have been excellent. The combination of cheese sauce and shredded cheese to the dish provides a depth of flavor in the cheese category. Pulled pork and shredded chicken are both excellent and combine with the other fresh toppings to provide the quintessintial American nacho experience.",
 				restaurant, "/images/smokeyBonesNachos.jpg", "Classic American offering, B+."));
-
+		commentRepo.save(new Comment("Ben", tacoBellNachosSupreme, 101L, "I agree with this review"));
 	}
 
 }
