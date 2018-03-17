@@ -3,6 +3,7 @@ package com.nachopowerrankings.reviews;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -13,6 +14,7 @@ public class Comment {
 	private String author;
 	@ManyToOne
 	private Review review;
+	@Lob
 	private String content;
 	private long time;
 

@@ -43,8 +43,22 @@
 				<div class="add-comment-author">
 					<label class="add-comment-author-label">Enter your name:</label>
 					<input class="add-comment-author-input" type="text" name="author"/>
+				</div>
+				<div class= "add-comment-content">
 					<label class="add-comment-content-label">What do you think about this review?</label>
 					<input class="add-comment-content-input" type="text" name="content"/>
+				</div>
+				<div class= "add-comment-time">
+					<input class="add-comment-time-input" type="hidden" name="time"/>
+				</div>
+				<div class="add-comment-reviewId">
+				<p th:text="${selectedReview.id}"></p>
+					<input type="text" th:text="${selectedReview.id}"/>
+				<!--  	<input class="add-comment-reviewId" type="text" th:field="*{selectedReview.id}" name="inputId"> 
+			 -->	
+			 	</div>
+				<div class= "add-comment-button">
+					<button th:formaction = "@{/add-comment}">Add Comment</button>
 				</div>
 			</form>
 		</div>
