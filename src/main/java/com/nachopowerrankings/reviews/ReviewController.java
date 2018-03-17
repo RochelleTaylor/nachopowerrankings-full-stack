@@ -36,4 +36,9 @@ public class ReviewController {
 		return "single-review-view";
 	}
 
+	public String addComment(String testAuthor, Review review1, Long testDate, String testContent, Model model) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
