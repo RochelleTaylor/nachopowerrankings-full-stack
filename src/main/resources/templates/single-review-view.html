@@ -25,20 +25,29 @@
 			</nav>
 		</header>
 		<article class="review-body" th:each="review: ${selectedReview}">
-			<h3 class="review-title" th:text="${review.title}"></h3>
+			<h3 class="review-title" th:text="${review.title}">Title of Nacho Review</h3>
 			<img th:src="${review.imageUrl}" alt="Picture of Nachos"/>
-			<p th:text="${review.content}"></p>
-			<h3 class="review-tldr" th:text="${review.tldr}"></h3>
-			<a class="category-link" th:href="@{/category(id=${review.category.id})}" th:text="'Return to '+ ${review.category.name}"></a>
+			<p th:text="${review.content}">Content of the nacho reviews.</p>
+			<h3 class="review-tldr" th:text="${review.tldr}">Review TLDR</h3>
+			<a class="category-link" th:href="@{/category(id=${review.category.id})}" th:text="'Return to '+ ${review.category.name}">Return to parent category</a>
 		</article>
-		<div class = "comments-body">
+		<div class="comments-body">
 			<article class="comment-body" th:each="comment: ${selectedReview.comments}">
-				<h5 class="author-byline"><span class="comment-author" th:text="${comment.author}"></span> thinks this about the review:</h5>
+				<h5 class="author-byline"><span class="comment-author" th:text="${comment.author}">Commenter</span> thinks this about the review:</h5>
 				<p class="comment-timestamp" th:text="${comment.time}"></p>
 				<p class="comment-content" th:text="${comment.content}"></p>
 			</article>
 		</div>
-		
+		<div class="add-comment">
+			<form class="add-comment-form" method="POST">
+				<div class="add-comment-author">
+					<label class="add-comment-author-label">Enter your name:</label>
+					<input class="add-comment-author-input" type="text" name="author"/>
+					<label class="add-comment-content-label">What do you think about this review?</label>
+					<input class="add-comment-content-input" type="text" name="content"/>
+				</div>
+			</form>
+		</div>
 		<footer class="footer-box">
 			<section class="footer-message">
 				<p>Thanks for stopping by NachoPowerRankings.com</p>
