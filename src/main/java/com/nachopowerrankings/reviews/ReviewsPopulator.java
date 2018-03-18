@@ -14,6 +14,8 @@ public class ReviewsPopulator implements CommandLineRunner {
 	private ReviewRepository reviewRepo;
 	@Resource
 	private CommentRepository commentRepo;
+	@Resource
+	private ContentTagRepository contentTagRepo;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -30,9 +32,10 @@ public class ReviewsPopulator implements CommandLineRunner {
 				"This is the nickel of the nacho world, ubiquitous, yet not really necessary. However, it does provide a stable baseline that other nachos have to acheive to be considered nachos. The chips are fresh with a crunch and adequete saltiness.  The nacho cheese is the goold standard for fast food cheese sauce, creamy, hot, and smooth in a way that only processed cheese can achieve.  Toppings are minimal, but they work to add value to the dish. The taco beef is classic, sour cream and tomatoes add a coolness that helps contrast the sharpness of the cheese sauce, but the refried beans often miss the mark being too clumpy most of the time.",
 				fastFood, "/images/NachosSupreme.jpg", "A baseline C, better than not having nachos."));
 		Long review1Id = review1.getId();
-		reviewRepo.save(new Review("Taco Bell Nachos Bell Grande",
+		Review review2 = reviewRepo.save(new Review("Taco Bell Nachos Bell Grande",
 				"Taco Bell's premium nachos offering is a larger version of their Nachos Supreme. There is nothing to seperate it from it's smaller brethern. This isn't a bad thing. As we described in our review of the Nachos Supreme, the ingredients used are adequete, but nothing makes the Nachos Bell Grande stand out from the rest.",
 				fastFood, "/images/NachosBellGrande.jpg", "A bigger version of the Nachos Supreme, C."));
+		Long review2Id = review2.getId();
 		reviewRepo.save(new Review("Wikipedia Nachos",
 				"This version of nachos is why you can't use wikipedia as a research source on academic papers. The chips are store bought, not a problem for home made nachos, but the arrangement is bush league and reeks of a no talent nacho clown trying to make a fancy plate for Pinterest. The cheese is frightning, it appears to have the surface tension of grade school children's slime. Slivers of onions convey a sense of true laziness in the preparer.  And finally, the coup de grâce of the entire dish are the whole olives. Adding no value of their own, the only purpose they serve is as a warning that noone should give this dish the time of day.",
 				homeMade, "/images/wikiNachosSupreme.jpg", "A strict F-."));
@@ -44,6 +47,10 @@ public class ReviewsPopulator implements CommandLineRunner {
 				restaurant, "/images/smokeyBonesNachos.jpg", "Classic American offering, B+."));
 		Comment comment1 = new Comment("Ben", reviewRepo.findOne(review1Id), "Taco Bell makes me smell.");
 		commentRepo.save(comment1);
+		ContentTag contentTag1 = new ContentTag("Beefy", review1, review2);
+		contentTagRepo.save(contentTag1);
+		ContentTag contentTag2 = new ContentTag("Run for the border", review1, review2);
+		contentTagRepo.save(contentTag2);
 	}
 
 }
