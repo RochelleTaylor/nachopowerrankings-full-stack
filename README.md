@@ -8,17 +8,18 @@ In the week 9 capstone project we return to our full stack nachos review site.  
 	- [x] Create a Tag class.
 		- [x] Create a Many to Many relationship with the Review class.
 		- [x] Name element.
-	- [ ] Clicking on a tag will display reviews assoicated with the tag.
-	- [ ] Use HTML elements and AJAX to allow the user to add and remove tags from reviews.
-	- [ ] Do not allow duplicate tags to be created.
+	- [R ] Clicking on a tag will display reviews assoicated with the tag.
+	- [B ] Use HTML elements and AJAX to allow the user to add and remove tags from reviews.
+	- [B ] Do not allow duplicate tags to be created.
+	- [R ] Style Tags in a flexbox.
 - [ ] Add comments to reviews.  
 	- [x] Create a Comment class.
 		- [x] Create a Many to One relationship with the Review class.
 		- [x] Commenter name, time and date, and content elements.   
 	- [x] Should be listed on the review page after review content.
-	- [ ] Create a form on the review page that adds a comment to a review.
-	- [ ] Use a HTML form submission.
-	- [ ] After submitting comment refresh review page with user comment added.
+	- [x] Create a form on the review page that adds a comment to a review.
+	- [x] Use a HTML form submission.
+	- [x] After submitting comment refresh review page with user comment added.
 
 ## Team
 Contributers:
