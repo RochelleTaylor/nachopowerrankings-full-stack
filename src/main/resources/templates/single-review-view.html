@@ -31,6 +31,13 @@
 			<h3 class="review-tldr" th:text="${review.tldr}">Review TLDR</h3>
 			<a class="category-link" th:href="@{/category(id=${review.category.id})}" th:text="'Return to '+ ${review.category.name}">Return to parent category</a>
 		</article>
+		<div class= "content-tags-body">
+			<article class ="content-tag-body" th:each="contentTag: ${selectedReview.contentTags}">
+				<h5 class ="content-tag-name" th:text ="${contentTag.name}">TagName</h5>
+			</article>
+		</div>
+		<div class = "add-tags">
+		</div>
 		<div class="comments-body">
 			<article class="comment-body" th:each="comment: ${selectedReview.comments}">
 				<h5 class="author-byline"><span class="comment-author" th:text="${comment.author}">Commenter</span> thinks this about the review:</h5>
