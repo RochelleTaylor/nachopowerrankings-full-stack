@@ -38,6 +38,13 @@ form.addEventListener('submit', function(event) {
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhr.send("name=" + contentTagName + "&reviewId=" + reviewId);
 })
+
+document.querySelectorAll('.projects .project-button').forEach(function(button){
+	button.addEventListener("click", function(event){
+		event.preventDefault();
+		const tagToBeRemovedId = document.getElementById('tagToBeRemovedId').value
+	});
+});
 // creating ajax call to delete tag by method used created in Controller
 // const removeForm = document.getElementById('deleteTagForm');
 // removeForm.addEventListener('submit', function(event) {
