@@ -9,12 +9,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class ContentTag {
 	@Id
 	@GeneratedValue
 	private long id;
 	private String name;
+	@JsonIgnore
 	@ManyToMany
 	private Collection<Review> reviews; // = new HashSet<>();
 

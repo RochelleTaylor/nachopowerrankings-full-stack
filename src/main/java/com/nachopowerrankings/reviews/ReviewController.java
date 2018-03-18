@@ -15,6 +15,8 @@ public class ReviewController {
 	private ReviewRepository reviewRepo;
 	@Resource
 	private CommentRepository commentRepo;
+	@Resource
+	private ContentTagRepository contentTagRepo;
 
 	@RequestMapping("/category")
 	public String showCategory(@RequestParam("id") Long categoryId, Model model) {
@@ -45,6 +47,15 @@ public class ReviewController {
 		Comment newComment = new Comment(author, appendedReview, content);
 		commentRepo.save(newComment);
 
+		return "redirect:/review?id=" + reviewId;
+	}
+
+	@RequestMapping("/add-content-tag")
+	public String addContentTag(String name, Long reviewId) {
+		// Long longReviewId = Long.parseLong(reviewId);
+		Review appendedReview = reviewRepo.findOne(reviewId);
+		ContentTag newContentTag = new ContentTag(name, appendedReview);
+		contentTagRepo.save(newContentTag);
 		return "redirect:/review?id=" + reviewId;
 	}
 

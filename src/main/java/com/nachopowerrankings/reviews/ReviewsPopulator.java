@@ -35,7 +35,7 @@ public class ReviewsPopulator implements CommandLineRunner {
 		Review review2 = reviewRepo.save(new Review("Taco Bell Nachos Bell Grande",
 				"Taco Bell's premium nachos offering is a larger version of their Nachos Supreme. There is nothing to seperate it from it's smaller brethern. This isn't a bad thing. As we described in our review of the Nachos Supreme, the ingredients used are adequete, but nothing makes the Nachos Bell Grande stand out from the rest.",
 				fastFood, "/images/NachosBellGrande.jpg", "A bigger version of the Nachos Supreme, C."));
-		Long review2Id = review2.getId();
+
 		reviewRepo.save(new Review("Wikipedia Nachos",
 				"This version of nachos is why you can't use wikipedia as a research source on academic papers. The chips are store bought, not a problem for home made nachos, but the arrangement is bush league and reeks of a no talent nacho clown trying to make a fancy plate for Pinterest. The cheese is frightning, it appears to have the surface tension of grade school children's slime. Slivers of onions convey a sense of true laziness in the preparer.  And finally, the coup de grâce of the entire dish are the whole olives. Adding no value of their own, the only purpose they serve is as a warning that noone should give this dish the time of day.",
 				homeMade, "/images/wikiNachosSupreme.jpg", "A strict F-."));

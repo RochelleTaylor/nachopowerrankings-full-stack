@@ -14,24 +14,18 @@ public class ReviewRestController {
 	private ContentTagRepository contentTagRepo;
 
 	@RequestMapping("/contentTags/{id}")
-	public String findOneContentTag(@PathVariable long id) {
-		return contentTagRepo.findOne(id).getName();
+	public ContentTag findOneContentTagName(@PathVariable long id) {
+
+		return contentTagRepo.findOne(id);
 	}
 
 	@RequestMapping("/contentTags")
-	public String findAllContentTagNames() {
-		String contentTagNames = "";
-		Iterable<ContentTag> contentTags = contentTagRepo.findAll();
-		for (ContentTag tag : contentTags) {
-			contentTagNames += tag.getName();
-			contentTagNames += "\n";
-		}
-		return contentTagNames;
+	public Iterable<ContentTag> findAllContentTags() {
+		return contentTagRepo.findAll();
+		// for (ContentTag tag : contentTags) {
+		// contentTagNames += tag.getName();
+		// contentTagNames += "\n";
+		// }
+		// return contentTagNames;
 	}
-
-	// @RequestMapping("/tagNames")
-	// public List<ContentTag> findAllContentTagNamesByRest() {
-	// return contentTagRepo.findByName();
-	// }
-
 }

@@ -10,7 +10,9 @@
 </head>
 
 <body>
+	<div id="AJAXcontainer">
 	<div class="container">
+		
 		<header>
 			<div class="header-title-container">
 				<h1 class="header-title">NachoPowerRankings</h1>
@@ -31,13 +33,28 @@
 			<h3 class="review-tldr" th:text="${review.tldr}">Review TLDR</h3>
 			<a class="category-link" th:href="@{/category(id=${review.category.id})}" th:text="'Return to '+ ${review.category.name}">Return to parent category</a>
 		</article>
-		<div class= "content-tags-body">
+		<div class= "content-tags-body" id="tagList">
 			<article class ="content-tag-body" th:each="contentTag: ${selectedReview.contentTags}">
 				<h5 class ="content-tag-name" th:text ="${contentTag.name}">TagName</h5>
 			</article>
 		</div>
-		<div class = "add-tags">
+		
+		<div class = "add-content-tag">
+			<form id="add-content-tag-form" method="POST">
+				<div class= "add-content-tag-name">
+					<label class="add-content-tag-name-label">Give this review a tag:</label>
+					<input id="add-content-tag-name-input" type="text" name="name"/>
+				</div>
+				<div class="add-contentTag-reviewId">
+					<input id="add-content-tag-reviewId" type="hidden" th:value="${selectedReview.id}" name="reviewId"/>
+				</div>
+				<div class= "add-content-tag-button">
+					<button th:formaction = "@{/add-content-tag}">Add Tag</button>
+				</div>
+			</form>
+		
 		</div>
+		
 		<div class="comments-body">
 			<article class="comment-body" th:each="comment: ${selectedReview.comments}">
 				<h5 class="author-byline"><span class="comment-author" th:text="${comment.author}">Commenter</span> thinks this about the review:</h5>
@@ -70,6 +87,8 @@
 				<p>©2018</p>
 			</section>
 		</footer>
+		</div>
 	</div>
+	<script src="js/ajax-tags.js"></script>
 </body>
 </html>
