@@ -6,7 +6,7 @@
 
 .container {
 	display:grid;
-	grid-template-rows: 120px auto 80px;
+	grid-template-rows: 120px auto auto auto auto auto 80px;
 	grid-gap: 10px;
 	min-height: 100vh;
 }
