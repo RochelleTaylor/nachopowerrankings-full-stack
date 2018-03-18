@@ -70,6 +70,12 @@ img{
 	grid-template-columns: auto 30px;
 	grid-template-rows: auto
 }
+.content-tag-body{
+	display: flex;
+	flex-direction: row;
+	align-content: flex-start;
+  	align-items: center;
+}
 .content-tag-box{
 	grid-column: 1/2;
 	grid-row: 1/-1;
