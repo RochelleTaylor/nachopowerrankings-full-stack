@@ -48,11 +48,8 @@
 					<input class="add-comment-content-input" type="text" name="content"/>
 				</div>
 				<div class="add-comment-reviewId">
-				<p th:text="${selectedReview.id}"></p>
-					<input type="text" th:value="${selectedReview.id}" name="reviewId"/>
-				<!--  	<input class="add-comment-reviewId" type="text" th:field="*{selectedReview.id}" name="inputId"> 
-			 -->	
-			 	</div>
+					<input type="hidden" th:value="${selectedReview.id}" name="reviewId"/>
+				</div>
 				<div class= "add-comment-button">
 					<button th:formaction = "@{/add-comment}">Add Comment</button>
 				</div>
