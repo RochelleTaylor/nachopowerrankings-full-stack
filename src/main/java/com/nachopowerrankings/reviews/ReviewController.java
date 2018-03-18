@@ -59,4 +59,10 @@ public class ReviewController {
 		return "redirect:/review?id=" + reviewId;
 	}
 
+	@RequestMapping("/remove-content-tag")
+	public String removeContentTag(Long contentTagId, Long reviewId) {
+		contentTagRepo.delete(contentTagId);
+		return "redirect:/review?id=" + reviewId;
+	}
+
 }
