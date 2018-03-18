@@ -35,8 +35,14 @@
 		</article>
 		<div class= "content-tags-body" id="tagList">
 			<article class ="content-tag-body" th:each="contentTag: ${selectedReview.contentTags}">
-				<h5 class ="content-tag-name" th:text ="${contentTag.name}">TagName</h5>
+				<div class="content-tag-body content-tag-box">
+					<h5 class ="content-tag-name" th:text ="${contentTag.name}">TagName</h5>
+				</div>
+				<div class = "content-tag-remove content-tag-triangle">
+					<p class="content-tag-remove-button">X</p>
+				</div>
 			</article>
+			
 		</div>
 		
 		<div class = "add-content-tag">
