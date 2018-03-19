@@ -36,7 +36,9 @@
 		<div class= "content-tags-body" id="tagList">
 			<article class ="content-tag-body" th:each="contentTag: ${selectedReview.contentTags}">
 				<div class="content-tag-body content-tag-box">
-					<h5 class ="content-tag-name" th:text ="${contentTag.name}">TagName</h5>
+					<h5 class="content-tag-name" >
+						<a th:href="@{/content-tag(id=${contentTag.id})}" th:text="${contentTag.name}">TagName</a>
+					</h5>
 				</div>
 				<div class = "content-tag-remove content-tag-triangle">
 					<form class="content-tag-remove-form">

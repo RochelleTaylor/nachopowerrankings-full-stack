@@ -41,10 +41,10 @@ public class ReviewController {
 	}
 
 	@RequestMapping("/content-tag")
-	public String showContent(@RequestParam("id") Long contentTagId, Model model) {
-		ContentTag selected = contentTagRepo.findOne(contentTagId);
-		model.addAttribute("selectedTagRepo", selected);
-		return "single-content-tag-view";
+  public String showContentTag(@RequestParam("id") Long contentTagId, Model model) {
+		ContentTag selectedContentTag = contentTagRepo.findOne(contentTagId);
+		model.addAttribute("selectedContentTag", selectedContentTag);
+    return "single-content-tag-view";
 	}
 
 	@RequestMapping("/add-comment")
@@ -59,7 +59,6 @@ public class ReviewController {
 
 	@RequestMapping("/add-content-tag")
 	public String addContentTag(String name, Long reviewId) {
-		// Long longReviewId = Long.parseLong(reviewId);
 		Review appendedReview = reviewRepo.findOne(reviewId);
 		ContentTag newContentTag = new ContentTag(name, appendedReview);
 		contentTagRepo.save(newContentTag);
@@ -68,7 +67,16 @@ public class ReviewController {
 
 	@RequestMapping("/remove-content-tag")
 	public String removeContentTag(Long contentTagId, Long reviewId) {
-		contentTagRepo.delete(contentTagId);
+		Review parentReview = reviewRepo.findOne(reviewId);
+		ContentTag tagToRemove = contentTagRepo.findOne(contentTagId);
+		parentReview.getContentTags().remove(tagToRemove);
+		tagToRemove.getReviews().remove(parentReview);
+		reviewRepo.save(parentReview);
+		if (tagToRemove.getReviews().size() == 0) {
+			contentTagRepo.delete(contentTagId);
+		} else {
+			contentTagRepo.save(tagToRemove);
+		}
 		return "redirect:/review?id=" + reviewId;
 	}
 

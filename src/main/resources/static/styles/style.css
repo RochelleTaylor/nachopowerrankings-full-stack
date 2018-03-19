@@ -30,3 +30,6 @@ body {
 ul.nav-list{
 	list-style-type: none;
 }
+.content-tag-remove-button{
+cursor:pointer;
+}
