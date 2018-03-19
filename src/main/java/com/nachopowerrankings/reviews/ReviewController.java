@@ -52,7 +52,6 @@ public class ReviewController {
 
 	@RequestMapping("/add-content-tag")
 	public String addContentTag(String name, Long reviewId) {
-		// Long longReviewId = Long.parseLong(reviewId);
 		Review appendedReview = reviewRepo.findOne(reviewId);
 		ContentTag newContentTag = new ContentTag(name, appendedReview);
 		contentTagRepo.save(newContentTag);
@@ -71,7 +70,6 @@ public class ReviewController {
 		} else {
 			contentTagRepo.save(tagToRemove);
 		}
-		// contentTagRepo.delete(contentTagId);
 		return "redirect:/review?id=" + reviewId;
 	}
 
