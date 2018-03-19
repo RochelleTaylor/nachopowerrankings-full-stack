@@ -40,6 +40,13 @@ public class ReviewController {
 		return "single-review-view";
 	}
 
+	@RequestMapping("/content-tag")
+	public String showContentTag(@RequestParam("id") Long contentTagId, Model model) {
+		ContentTag selectedContentTag = contentTagRepo.findOne(contentTagId);
+		model.addAttribute("selectedContentTag", selectedContentTag);
+		return "single-content-tag-view";
+	}
+
 	@RequestMapping("/add-comment")
 	public String addComment(String author, String reviewId, String content) {
 		Long longReviewId = Long.parseLong(reviewId);
