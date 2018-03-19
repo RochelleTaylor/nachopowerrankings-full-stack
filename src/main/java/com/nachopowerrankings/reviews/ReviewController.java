@@ -61,7 +61,17 @@ public class ReviewController {
 
 	@RequestMapping("/remove-content-tag")
 	public String removeContentTag(Long contentTagId, Long reviewId) {
-		contentTagRepo.delete(contentTagId);
+		Review parentReview = reviewRepo.findOne(reviewId);
+		ContentTag tagToRemove = contentTagRepo.findOne(contentTagId);
+		parentReview.getContentTags().remove(tagToRemove);
+		tagToRemove.getReviews().remove(parentReview);
+		reviewRepo.save(parentReview);
+		if (tagToRemove.getReviews().size() == 0) {
+			contentTagRepo.delete(contentTagId);
+		} else {
+			contentTagRepo.save(tagToRemove);
+		}
+		// contentTagRepo.delete(contentTagId);
 		return "redirect:/review?id=" + reviewId;
 	}
 
